@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1052079190269",
+    "project_id": "recipe-master-pro-dcf96",
+    "storage_bucket": "recipe-master-pro-dcf96.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052079190269:android:c738570e326437918a4e94",
+        "android_client_info": {
+          "package_name": "com.example.recipemasterpro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8ZUuTLYFthI6NNnzjjF1tiP_2BHOvsqg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

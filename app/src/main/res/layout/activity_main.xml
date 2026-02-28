@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="24dp"
+    android:background="@color/background">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome!"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:layout_marginBottom="50dp"/>
+
+    <!-- Action Button 1 -->
+    <Button
+        android:id="@+id/actionButton1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Action 1"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:backgroundTint="@color/primary"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Action Button 2 -->
+    <Button
+        android:id="@+id/actionButton2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Action 2"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:backgroundTint="@color/secondary"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Action Button 3 -->
+    <Button
+        android:id="@+id/actionButton3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Action 3"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:backgroundTint="@color/accent"
+        android:layout_marginBottom="30dp"/>
+
+    <!-- Logout Button -->
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textAllCaps="false"
+        android:backgroundTint="@android:color/darker_gray"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>
