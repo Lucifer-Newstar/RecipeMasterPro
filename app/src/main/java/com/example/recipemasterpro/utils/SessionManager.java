@@ -20,15 +20,34 @@ public class SessionManager {
         return instance;
     }
 
-    public void saveUserSession(String userId, String userRole) {
+    public void saveUserSession(String userId, String userName, String userEmail, String userRole) {
         editor.putString(Constants.KEY_USER_ID, userId);
+        editor.putString(Constants.KEY_USER_NAME, userName);
+        editor.putString(Constants.KEY_USER_EMAIL, userEmail);
         editor.putString(Constants.KEY_USER_ROLE, userRole);
         editor.putBoolean(Constants.KEY_IS_LOGGED_IN, true);
         editor.apply();
     }
 
+    public void saveFcmToken(String token) {
+        editor.putString(Constants.KEY_FCM_TOKEN, token);
+        editor.apply();
+    }
+
+    public String getFcmToken() {
+        return sharedPreferences.getString(Constants.KEY_FCM_TOKEN, null);
+    }
+
     public String getUserId() {
         return sharedPreferences.getString(Constants.KEY_USER_ID, null);
+    }
+
+    public String getUserName() {
+        return sharedPreferences.getString(Constants.KEY_USER_NAME, null);
+    }
+
+    public String getUserEmail() {
+        return sharedPreferences.getString(Constants.KEY_USER_EMAIL, null);
     }
 
     public String getUserRole() {

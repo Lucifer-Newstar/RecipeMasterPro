@@ -1,6 +1,8 @@
 package com.example.recipemasterpro.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,7 +43,25 @@ public class RecipeListActivity extends AppCompatActivity {
 
     private void setupRecyclerView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new RecipeAdapter(this, recipeList);
+        
+        // Optimize RecyclerView
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setItemViewCacheSize(20);
+        recyclerView.setDrawingCacheEnabled(true);
+        recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+        
+        // Create adapter with click listener
+        adapter = new RecipeAdapter(this, recipeList, new RecipeAdapter.OnRecipeClickListener() {
+            @Override
+            public void onRecipeClick(Recipe recipe) {
+                // Open RecipeDetailActivity when recipe is clicked
+                Intent intent = new Intent(RecipeListActivity.this, RecipeDetailActivity.class);
+                intent.putExtra("recipeId", recipe.getRecipeId());
+                intent.putExtra("recipeTitle", recipe.getTitle());
+                startActivity(intent);
+            }
+        });
+        
         recyclerView.setAdapter(adapter);
     }
 
@@ -59,6 +79,8 @@ public class RecipeListActivity extends AppCompatActivity {
 
                     if (recipeList.isEmpty()) {
                         Toast.makeText(this, "No recipes found", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "Found " + recipeList.size() + " recipes", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(e -> {

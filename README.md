@@ -36,7 +36,7 @@ A comprehensive Android recipe application with video tutorials, ratings, and mu
 
 ## Screenshots 📸
 
-(Add screenshots here later)
+
 
 ## Setup Instructions 🚀
 

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/reelTitleInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Reel Title"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/reelDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description (optional)"
+                android:inputType="textMultiLine"
+                android:minLines="2"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/selectVideoButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Select Video"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/secondary"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/selectedVideoText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No video selected"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <ProgressBar
+            android:id="@+id/uploadProgress"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:visibility="gone"
+            style="?android:attr/progressBarStyleHorizontal"/>
+
+    </LinearLayout>
+</ScrollView>

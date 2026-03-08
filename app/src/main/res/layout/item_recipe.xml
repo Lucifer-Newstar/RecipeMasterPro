@@ -1,53 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    style="@style/ModernCard">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/titleText"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/thumbnailImage"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_recipe_placeholder" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Recipe Title"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/primary"
-            android:layout_marginBottom="4dp"/>
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/descriptionText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Recipe description"
-            android:textSize="14sp"
-            android:textColor="@android:color/darker_gray"
-            android:layout_marginBottom="8dp"/>
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Spicy Arrabiata Pasta"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="4dp"/>
 
-        <TextView
-            android:id="@+id/chefText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="By: Chef Name"
-            android:textSize="12sp"
-            android:textColor="@color/secondary"
-            android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/chefText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chef Mario"
+                android:textSize="14sp"
+                android:textColor="@color/primary"
+                android:layout_marginBottom="8dp"/>
 
-        <TextView
-            android:id="@+id/timeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Prep: 15min | Cook: 30min"
-            android:textSize="12sp"
-            android:textColor="@color/accent"/>
+            <TextView
+                android:id="@+id/descriptionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="A classic Italian pasta with a kick of heat from red chili peppers."
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginBottom="12dp"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_video"
+                    app:tint="@color/text_hint" />
+
+                <TextView
+                    android:id="@+id/timeText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="25 min"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_hint"
+                    android:layout_marginStart="4dp"/>
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:rating="4.5"
+                    android:isIndicator="true"
+                    android:progressTint="@color/rating_selected" />
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

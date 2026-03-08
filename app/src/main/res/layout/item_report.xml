@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/typeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RECIPE"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@color/primary"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:id="@+id/timestampText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mar 8, 2024"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary"
+                android:gravity="end"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/contentPreviewText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Spicy Chicken Curry"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/reasonText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reason: Inappropriate content"
+            android:textSize="14sp"
+            android:textColor="@color/error"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/reporterText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reported by: John Doe"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="4dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/dismissButton"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Dismiss"
+                android:textColor="@color/text_secondary"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/actionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Take Action"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/error"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

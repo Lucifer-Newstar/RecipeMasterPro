@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -95,22 +96,175 @@
                 android:inputType="number"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Buttons -->
-        <Button
-            android:id="@+id/addIngredientButton"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Ingredients"
-            android:backgroundTint="@color/secondary"
+            android:text="Full Recipe Video"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"/>
 
-        <Button
-            android:id="@+id/addStepButton"
+        <LinearLayout
+            android:id="@+id/fullVideoSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Steps"
-            android:backgroundTint="@color/secondary"
-            android:layout_marginBottom="24dp"/>
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:background="@drawable/border_gray">
+
+            <Button
+                android:id="@+id/selectFullVideoButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Select Full Recipe Video"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/secondary"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:id="@+id/fullVideoInfo">
+
+                <ImageView
+                    android:id="@+id/fullVideoPreview"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_video"
+                    android:padding="8dp"/>
+
+                <TextView
+                    android:id="@+id/fullVideoNameText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No file selected"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical"
+                    android:padding="8dp"/>
+
+                <ProgressBar
+                    android:id="@+id/fullVideoProgress"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:visibility="gone"
+                    style="?android:attr/progressBarStyleHorizontal"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reel (Short Video)"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/reelVideoSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:background="@drawable/border_gray">
+
+            <Button
+                android:id="@+id/selectReelButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Select Reel Video (15-60 seconds)"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/accent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:id="@+id/reelVideoInfo">
+
+                <ImageView
+                    android:id="@+id/reelVideoPreview"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_reel"
+                    android:padding="8dp"/>
+
+                <TextView
+                    android:id="@+id/reelVideoNameText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No file selected"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical"
+                    android:padding="8dp"/>
+
+                <ProgressBar
+                    android:id="@+id/reelVideoProgress"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:visibility="gone"
+                    style="?android:attr/progressBarStyleHorizontal"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingredients"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ingredientsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addIngredientButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ Add Ingredient"
+            android:textColor="@color/secondary"
+            android:layout_gravity="end"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Instructions"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/stepsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addStepButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ Add Step"
+            android:textColor="@color/secondary"
+            android:layout_gravity="end"/>
 
         <Button
             android:id="@+id/saveButton"
@@ -119,6 +273,16 @@
             android:text="SAVE RECIPE"
             android:textAllCaps="true"
             android:backgroundTint="@color/primary"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/cancelButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Cancel"
+            android:textColor="@color/text_secondary"
             android:layout_marginBottom="16dp"/>
 
         <ProgressBar

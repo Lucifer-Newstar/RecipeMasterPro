@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_analytics"
+            android:icon="@drawable/ic_analytics"
+            android:title="Analytics" />
+        <item
+            android:id="@+id/nav_users"
+            android:icon="@drawable/ic_users"
+            android:title="User Management" />
+        <item
+            android:id="@+id/nav_recipes"
+            android:icon="@drawable/ic_recipes"
+            android:title="Recipe Moderation" />
+        <item
+            android:id="@+id/nav_reels"
+            android:icon="@drawable/ic_reels"
+            android:title="Reel Moderation" />
+        <item
+            android:id="@+id/nav_reports"
+            android:icon="@drawable/ic_reports"
+            android:title="Reports" />
+    </group>
+    
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Logout" />
+    
+</menu>

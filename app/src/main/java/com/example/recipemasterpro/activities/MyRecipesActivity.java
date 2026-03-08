@@ -1,5 +1,6 @@
 package com.example.recipemasterpro.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +17,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyRecipesActivity extends AppCompatActivity {
+public class MyRecipesActivity extends AppCompatActivity implements RecipeAdapter.OnRecipeClickListener {
 
     private RecyclerView recyclerView;
     private RecipeAdapter adapter;
@@ -45,7 +46,7 @@ public class MyRecipesActivity extends AppCompatActivity {
 
     private void setupRecyclerView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new RecipeAdapter(this, recipeList);
+        adapter = new RecipeAdapter(this, recipeList, this);
         recyclerView.setAdapter(adapter);
     }
 
@@ -72,5 +73,12 @@ public class MyRecipesActivity extends AppCompatActivity {
                 .addOnFailureListener(e -> {
                     Toast.makeText(this, "Error loading recipes: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
+    }
+
+    @Override
+    public void onRecipeClick(Recipe recipe) {
+        Intent intent = new Intent(this, RecipeDetailActivity.class);
+        intent.putExtra("recipeId", recipe.getRecipeId());
+        startActivity(intent);
     }
 }

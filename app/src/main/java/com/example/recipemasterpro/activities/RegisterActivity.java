@@ -117,12 +117,22 @@ public class RegisterActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser firebaseUser = mAuth.getCurrentUser();
                         if (firebaseUser != null) {
+                            // Create user with ALL fields
                             User user = new User(
                                     firebaseUser.getUid(),
                                     name,
                                     email,
                                     role
                             );
+                            
+                            // Set default values for all fields
+                            user.setRecipeCount(0);
+                            user.setReelCount(0);
+                            user.setFollowersCount(0);
+                            user.setFollowingCount(0);
+                            user.setTotalLikes(0);
+                            user.setCreatedAt(System.currentTimeMillis());
+                            user.setLastLogin(System.currentTimeMillis());
 
                             db.collection(Constants.USERS_COLLECTION)
                                     .document(firebaseUser.getUid())

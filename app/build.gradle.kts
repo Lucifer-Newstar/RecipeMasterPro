@@ -1,6 +1,7 @@
 plugins {
-    id("com.android.application")
+    alias(libs.plugins.android.application)
     id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -19,34 +20,76 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
+        debug {
+            isMinifyEnabled = false
+        }
+    }
+
+    bundle {
+        language {
+            enableSplit = false
+        }
+        density {
+            enableSplit = true
+        }
+        abi {
+            enableSplit = true
+        }
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11  // Changed from 1.8 to 11
-        targetCompatibility = JavaVersion.VERSION_11  // Changed from 1.8 to 11
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.10.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    implementation(libs.constraintlayout)
+    implementation(libs.activity)
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
     // Firebase
-    implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
+    implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-storage")
+    implementation("com.google.firebase:firebase-crashlytics")
+
+    // GSON
+    implementation(libs.gson)
 
     // Testing
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.espresso.core)
+    
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+
+    // ExoPlayer
+    implementation("com.google.android.exoplayer:exoplayer:2.19.1")
+    implementation("com.google.android.exoplayer:exoplayer-ui:2.19.1")
+
+    // Notifications
+    implementation("com.google.firebase:firebase-messaging:23.4.0")
+
+    // UI Components
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("com.airbnb.android:lottie:6.3.0")
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
+
+    // Memory Leak Detection
+    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.12")
 }
