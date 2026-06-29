@@ -2,7 +2,7 @@
 
 A comprehensive Android recipe application with video tutorials, ratings, and multi-user roles.
 
-###Contributions:
+##Contributions:
 
 This project was built and pair-programmed together with Bilgates `[bilgates2005]`
 
